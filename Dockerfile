@@ -1,12 +1,12 @@
-LABEL org.opencontainers.image.source=https://github.com/mops1k/php-cli-dev-docker
-LABEL org.opencontainers.image.description="Docker image with php, composer and xdebug installed. Based on official php image."
-LABEL org.opencontainers.image.licenses=MIT
-
 ARG PHP_VERSION=8.3
 ARG COMPOSER_VERSION=latest
 
 FROM composer:${COMPOSER_VERSION} as composer
 FROM php:${PHP_VERSION}-cli-alpine
+
+LABEL org.opencontainers.image.source="https://github.com/mops1k/php-cli-dev-docker"
+LABEL org.opencontainers.image.description="Docker image with php, composer and xdebug installed. Based on official php image."
+LABEL org.opencontainers.image.licenses="MIT"
 
 RUN apk add --no-cache \
 		$PHPIZE_DEPS \
