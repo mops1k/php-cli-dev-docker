@@ -2,7 +2,7 @@ ARG PHP_VERSION=8.3
 ARG COMPOSER_VERSION=latest
 
 FROM composer:${COMPOSER_VERSION} as composer
-FROM php:${PHP_VERSION}-cli-alpine
+FROM php:${PHP_VERSION}-cli-alpine as base
 
 RUN apk add --no-cache \
 		$PHPIZE_DEPS \
