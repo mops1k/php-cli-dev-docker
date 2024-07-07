@@ -2,11 +2,13 @@ ARG PHP_VERSION=8.3
 ARG COMPOSER_VERSION=latest
 
 FROM composer:${COMPOSER_VERSION} as composer
-FROM php:${PHP_VERSION}-cli-alpine as base
+FROM php:${PHP_VERSION}-cli-alpine
 
 RUN apk add --no-cache \
 		$PHPIZE_DEPS \
 		openssl-dev
+
+RUN apk add --update linux-headers
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN chmod +x /usr/bin/composer
