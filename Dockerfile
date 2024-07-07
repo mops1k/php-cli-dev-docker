@@ -1,3 +1,7 @@
+LABEL org.opencontainers.image.source=https://github.com/mops1k/php-cli-dev-docker
+LABEL org.opencontainers.image.description="Docker image with php, composer and xdebug installed. Based on official php image."
+LABEL org.opencontainers.image.licenses=MIT
+
 ARG PHP_VERSION=8.3
 ARG COMPOSER_VERSION=latest
 
